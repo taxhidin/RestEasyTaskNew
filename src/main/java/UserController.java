@@ -9,19 +9,20 @@ import javax.inject.Inject;
 @Path("/user")
 
 public class UserController extends RestController {
+    @Inject
+    SummaryService summaryService;
 
-    @Inject  SummaryService summaryService;
+    @Inject
+    User user;
 
     @GET
-
     @Path("/getmethod")
-
     @Produces(MediaType.APPLICATION_JSON)
     public void getUsers(@Suspended AsyncResponse asyncResponse) {
         okReply(asyncResponse, summaryService.result());
     }
 
-    @Inject User user;
+
     @POST
     @Path("/setmethod")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -36,4 +37,5 @@ public class UserController extends RestController {
 
 
     }
+
 }
