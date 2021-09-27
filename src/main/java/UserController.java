@@ -16,7 +16,7 @@ public class UserController extends RestController {
     User user;
 
     @GET
-    @Path("/getmethod")
+    @Path("/addUpNumbers")
     @Produces(MediaType.APPLICATION_JSON)
     public void getUsers(@Suspended AsyncResponse asyncResponse) {
         okReply(asyncResponse, summaryService.result());
